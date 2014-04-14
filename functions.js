@@ -30,7 +30,7 @@
     // get a list of all teams
     var getAllTeams = function()
     {
-        // not sure how to do
+        // not sure how to do - no current API for this...
     }
 
     // get info and matches for a team
@@ -81,32 +81,20 @@
         // validation of data inputted
         switch (type) {
             case 0:
-                if (event === undefined && number === undefined) {
-                    valid = true;
-                }
-                break;
-            case 1:
-                if (number === undefined) {
-                    valid = true;
-                }
-                break;
             case 2:
                 if (event === undefined && number === undefined) {
                     valid = true;
                 }
                 break;
-            case 3:
-                if (event === undefined) {
-                    valid = true;
-                }
-                break;
+            case 1:
             case 4:
-                if (number === undefined) {
-                    valid = true;
-                }
-                break;
             case 5:
                 if (number === undefined) {
+                    valid = true;
+                }
+                break;
+            case 3:
+                if (event === undefined) {
                     valid = true;
                 }
                 break;
@@ -187,12 +175,13 @@
 // display functions
     // display list of competitions from localStorage
     var dispEvents = function () {
-        // JSON.parse(localStorage['1-' + JSON.parse(localStorage['0'])[0]]).name
+        // TODO: better way to display the data
         var eventTable = document.getElementById("events");
         for (var i = 0, n = JSON.parse(localStorage['0']).length; i < n; i++) {
             var row = eventTable.insertRow(i);
             var name = row.insertCell(0);
             var date = row.insertCell(1);
+            // parse the local storage data and put in HTML
             name.innerHTML = JSON.parse(localStorage['1-' + JSON.parse(localStorage['0'])[i]]).name;
             date.innerHTML = JSON.parse(localStorage['1-' + JSON.parse(localStorage['0'])[i]]).start_date;
 
