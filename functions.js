@@ -1,4 +1,6 @@
 // set up globals
+
+//not what it isn't 
     var X_TBA_App_Id = "frc1647:scouting-system:v01";
     var year = "2014";
 
